@@ -36,7 +36,7 @@ export default class Rules extends Component {
   ];
   componentWillMount() {
     getUserName({}, (res) => {
-      if (res == "admin") {
+      if (res == "admin" || res == "chenmiao") {
         this.setState({
           name: res,
           display: "block",
@@ -117,7 +117,8 @@ export default class Rules extends Component {
       <div>
         <div id="top-section">
           {
-            this.state.display == "block" ? <Button type="primary" onClick={this.handleAdd}>添加用户</Button> : null
+            // eslint-disable-next-line eqeqeq
+            this.state.display == 'block' ? <Button type="primary" onClick={this.handleAdd}>添加用户</Button> : null
           }
           <Button type="primary" onClick={this.handleChangePassword}>修改密码</Button>
         </div>

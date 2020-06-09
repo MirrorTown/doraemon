@@ -134,13 +134,17 @@ func (r *Reloader) Update() error {
 // Loop for checking the rules
 func (r *Reloader) Loop() {
 	for r.running {
+		fmt.Println("update")
 		r.Update()
 
 		select {
 		case <-r.context.Done():
+			fmt.Println("done")
 		case <-time.After(time.Duration(r.config.ReloadInterval)):
+			fmt.Println("reload")
 		}
 	}
+	fmt.Println("out")
 }
 
 func (r *Reloader) getPromRules() ([]PromRules, error) {

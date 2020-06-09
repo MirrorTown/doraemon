@@ -35,6 +35,7 @@ export default class Sider extends Component {
   }
   menuClick = (e) => {
     const { history } = this.props
+    console.log(history, e.key)
     history.push(`/${e.key}`);
   }
   setMenuActive() {
